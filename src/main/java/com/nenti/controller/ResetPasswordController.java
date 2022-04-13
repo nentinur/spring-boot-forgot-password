@@ -1,16 +1,19 @@
 package com.nenti.controller;
 
+import com.nenti.entity.PasswordReset;
 import com.nenti.entity.PasswordResetToken;
+import com.nenti.entity.User;
 import com.nenti.service.framework.PasswordResetTokenService;
 import com.nenti.service.framework.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.Locale;
 
@@ -41,5 +44,25 @@ public class ResetPasswordController {
             model.addAttribute("token", passwordResetToken.getToken());
         }
         return "reset-password";
+    }
+
+    @PostMapping
+    public String resetPassword(@Valid @ModelAttribute("passwordReset") PasswordReset passwordReset,
+                                BindingResult result,
+                                RedirectAttributes attributes) {
+        if (result.hasErrors()) {
+            attributes.addFlashAttribute("passwordReset", passwordReset);
+            return "redirect:/reset-password?token=" + passwordReset.getToken();
+        }
+        PasswordResetToken token = tokenService.findByToken(passwordReset.getToken());
+        User user = token.getUser();
+        user.setPassword(passwordReset.getPassword());
+        userService.updatePassword(user);
+        return "redirect:/login";
+    }
+
+    @ModelAttribute("passwordReset")
+    public PasswordReset passwordReset() {
+        return new PasswordReset();
     }
 }
