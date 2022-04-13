@@ -1,5 +1,6 @@
 package com.nenti.service.implementation;
 
+import com.nenti.entity.User;
 import com.nenti.repository.RoleRepository;
 import com.nenti.repository.UserRepository;
 import com.nenti.service.framework.UserService;
@@ -20,5 +21,10 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.roleRepository = roleRepository;
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email).orElse(null);
     }
 }
