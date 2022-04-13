@@ -12,7 +12,7 @@
 	<artifactId>Spring-Boot-Reset-Password</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Spring-Boot-Reset-Password</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Demo proj ect for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
 		<bootstrap.version>4.2.1</bootstrap.version>
