@@ -1,5 +1,6 @@
 package com.nenti.entity;
 
+import com.nenti.validator.PasswordConfirmation;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;

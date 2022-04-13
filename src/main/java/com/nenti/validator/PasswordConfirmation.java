@@ -1,4 +1,4 @@
-package com.nenti.entity;
+package com.nenti.validator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
