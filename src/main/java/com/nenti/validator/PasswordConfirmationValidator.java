@@ -1,6 +1,5 @@
 package com.nenti.validator;
 
-import com.nenti.validator.PasswordConfirmation;
 import org.springframework.beans.BeanWrapperImpl;
 
 import javax.validation.ConstraintValidator;
