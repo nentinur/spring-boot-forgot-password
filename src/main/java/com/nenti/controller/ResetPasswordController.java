@@ -63,6 +63,7 @@ public class ResetPasswordController {
 
     @ModelAttribute("passwordReset")
     public PasswordReset passwordReset() {
+
         return new PasswordReset();
     }
 }

@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
     private final MessageSource messageSource;
     private final String[] RESOURCE_HANDLERS = {
-            "/webjars/**", "/css/**", "/js/**", "/img/**", "/assets/**", "/static/**", "/blog.css/**",
+            "/webjars/**", "/static/css/**", "/js/**", "/img/**", "/assets/**", "/static/**", "/blog.css/**",
     };
     private final String[] RESOURCE_LOCATIONS = {
             "classpath:/META-INF/resources/webjars/",
@@ -25,6 +25,7 @@ public class WebConfig implements WebMvcConfigurer {
     };
 
     public WebConfig(MessageSource messageSource) {
+
         this.messageSource = messageSource;
     }
 

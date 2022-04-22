@@ -2,7 +2,6 @@ package com.nenti.config;
 
 import com.nenti.service.framework.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -32,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/reset-password**").permitAll()
                 .antMatchers(
                         "/js/**",
-                        "/css/**",
+                        "/static/css/**",
                         "/img/**",
                         "/webjars/**").permitAll()
                 .anyRequest().authenticated()

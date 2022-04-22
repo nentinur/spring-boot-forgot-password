@@ -30,6 +30,7 @@ public class SignupController {
 
     @GetMapping
     public String viewPage() {
+
         return "signup";
     }
 
@@ -56,6 +57,7 @@ public class SignupController {
 
     @ModelAttribute("user")
     public User user() {
+
         return new User();
     }
 }

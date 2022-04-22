@@ -45,6 +45,7 @@ public class ForgotPasswordController {
 
     @GetMapping
     public String viewPage() {
+
         return "forgot-password";
     }
 
@@ -97,6 +98,7 @@ public class ForgotPasswordController {
 
     @ModelAttribute("passwordForgot")
     public PasswordForgot passwordForgot() {
+
         return new PasswordForgot();
     }
 }
